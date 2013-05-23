@@ -1,0 +1,21 @@
+{
+  "name": "marknow",
+  "version": "0.0.0",
+  "description": "Markdown files life preview",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node spec/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:finalclass/marknow.git"
+  },
+  "keywords": [
+    "markdown",
+    "live",
+    "preivew",
+    "viewer"
+  ],
+  "author": "Szymon Wygnański",
+  "license": "MIT"
+}
