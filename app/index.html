@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Marknow</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        var gui = require('nw.gui'),
+                fs = require('fs'),
+                fileName,
+                lastArg = gui.App.argv[gui.App.argv.length - 1],
+                Showdown = require('showdown'),
+                converter = new Showdown.converter();
+
+        if (fs.existsSync(lastArg)) {
+            fileName = lastArg;
+        } else {
+            fileName = gui.App.argv.join('/');
+        }
+
+        function update() {
+            var contents = fs.readFileSync(fileName, {encoding: 'utf-8'});
+            $('body').html(converter.makeHtml(contents));
+        }
+
+        $(function () {
+            fs.watchFile(fileName, {persistent: true, interval: 50}, update);
+            update();
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
